@@ -12,7 +12,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
-    @job_application = job_Application.new(job_application_params)
+    @job_application = JobApplication.new(job_application_params)
 
     if @job_application.save
       redirect_to @job_application

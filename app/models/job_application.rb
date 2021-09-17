@@ -12,7 +12,7 @@ class JobApplication < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX, message: 'valid email address' }
   validates :phone_number, presence: true,
                            length: { maximum: 16 },
-                           format: { with: VALID_PHONE_NUMBER_REGEX }
+                           format: { with: VALID_PHONE_NUMBER_REGEX, message: '- no spaces or letters allowed' }
   validates :address, presence: true
   validates :education, presence: true
 
