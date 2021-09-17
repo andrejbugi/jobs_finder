@@ -1,0 +1,6 @@
+<% @job_applications.each do |job_application| %>
+  <%= job_application.full_name %>
+  <%= job_application.phone_number %>
+  <%= job_application.email %>
+  <%= link_to 'Show', job_application %>
+<% end %>

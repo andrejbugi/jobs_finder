@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: %i[show edit udpate destroy]
+  before_action :set_job, only: %i[show edit update destroy]
 
   def index
     @jobs = Job.all
