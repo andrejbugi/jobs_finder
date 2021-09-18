@@ -6,11 +6,15 @@
 <p><%= @job.category %></p>
 <p><%= @job.deadline %></p>
 
-<%= form_with model: @job, local: true do |form| %>
-  <%= render 'job_applications_forms/form_job_applications',
-      form: form %>
+<% if @job.status == 'active' %>
+  <%= form_with model: @job, local: true do |form| %>
+    <%= render 'job_applications_forms/form_job_applications',
+        form: form %>
 
-  <div class="actions">
-    <%= form.submit 'Submit proposal' %>
-  </div>
+    <div class="actions">
+      <%= form.submit 'Submit proposal' %>
+    </div>
+  <% end %>
+<% else %>
+  <h4>Applications are closed for this job. Deadline was <%= @job.deadline.to_date %> </h4>
 <% end %>

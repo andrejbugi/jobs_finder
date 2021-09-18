@@ -1,6 +1,6 @@
 class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: %i[show edit update destroy]
-  before_action :find_job, only: %i[new create show edit update destroy]
+  before_action :find_job, only: %i[new create show]
 
   def index
     @job_applications = JobApplication.all

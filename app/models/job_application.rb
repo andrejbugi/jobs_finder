@@ -20,9 +20,21 @@ class JobApplication < ApplicationRecord
 
   belongs_to :job
 
+  before_save :set_status_expired
+  before_create :active_job?
   after_create :new_application_email
 
   private
+
+  def set_status_expired
+    return if job.status == 'expired'
+
+    job.status = 'expired' if job.deadline < Time.now
+  end
+
+  def active_job?
+    throw :abort if job.status == 'expired'
+  end
 
   def new_application_email
     JobApplicationMailer.email_applicant(self, job).deliver_now
