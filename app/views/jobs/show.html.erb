@@ -6,8 +6,11 @@
 <p><%= @job.category %></p>
 <p><%= @job.deadline %></p>
 
-<%= form_with model: @job do |form| %>
+<%= form_with model: @job, local: true do |form| %>
   <%= render 'job_applications_forms/form_job_applications',
-      form: form,
-      job_applications: @job_applications %>
+      form: form %>
+
+  <div class="actions">
+    <%= form.submit 'Submit proposal' %>
+  </div>
 <% end %>

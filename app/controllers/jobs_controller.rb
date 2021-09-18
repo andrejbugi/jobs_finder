@@ -6,7 +6,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job_applications = @job.job_applications.build
+    # @job_applications = @job.job_applications.build
   end
 
   def new
@@ -46,9 +46,8 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :description, :company_name, :company_email,
                                 :category, :deadline, :status,
-                                job_applications_attributes: %i[full_name date_of_birth email
-                                                                phone_number address education
-                                                                id])
+                                job_applications_attributes: %i[id full_name date_of_birth email
+                                                                phone_number address education])
   end
 
   def set_job

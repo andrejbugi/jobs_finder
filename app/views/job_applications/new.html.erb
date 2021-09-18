@@ -1,5 +1,6 @@
 <h1>List new job application</h1>
 
-<%= render 'form', job_application: @job_application %>
+<%= render 'form', job_application: @job_application,
+                   job: @job %>
 
-<%= link_to 'Back', job_applications_path %>
+<%= link_to 'Back', job_job_applications_path %>

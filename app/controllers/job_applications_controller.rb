@@ -1,5 +1,6 @@
 class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: %i[show edit update destroy]
+  before_action :find_job, only: %i[new create show edit update destroy]
 
   def index
     @job_applications = JobApplication.all
@@ -8,14 +9,15 @@ class JobApplicationsController < ApplicationController
   def show; end
 
   def new
-    @job_application = JobApplication.new
+    @job_application = @job.job_applications.build
   end
 
   def create
-    @job_application = JobApplication.new(job_application_params)
+    @job_application = @job.job_applications.build(job_application_params)
+    @job_application.job_id = @job.id
 
     if @job_application.save
-      redirect_to @job_application
+      redirect_to @job
     else
       render :new
     end
@@ -48,5 +50,9 @@ class JobApplicationsController < ApplicationController
 
   def set_job_application
     @job_application = JobApplication.find(params[:id])
+  end
+
+  def find_job
+    @job = Job.find(params[:job_id])
   end
 end

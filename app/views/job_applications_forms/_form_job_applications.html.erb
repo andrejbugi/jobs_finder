@@ -1,6 +1,6 @@
 <h3>Apply for this job</h3>
 <ul>
-  <%= form.fields_for :job_applications, job_applications do |job_applications_form| %>
+  <%= form.fields_for :job_applications, JobApplication.new do |job_applications_form| %>
   <li>
     <div class="actions">
       <%= job_applications_form.label :full_name %>
@@ -31,10 +31,6 @@
       <%= job_applications_form.label :education %>
       <%= job_applications_form.select :education, [['Visa strucna sprema', 'vss'], ['nk'],
                                   ['všs'], ['Sredna strucna sprema', 'sss']] %>
-    </div>
-
-    <div class="actions">
-      <%= job_applications_form.submit 'Submit proposal' %>
     </div>
   </li>
   <% end %>

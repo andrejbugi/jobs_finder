@@ -19,4 +19,13 @@ class JobApplication < ApplicationRecord
   enum education: { vss: 0, všs: 1, sss: 2, nk: 3 }
 
   belongs_to :job
+
+  after_create :new_application_email
+
+  private
+
+  def new_application_email
+    JobApplicationMailer.email_applicant(self, job).deliver_now
+    JobApplicationMailer.email_company(self, job).deliver_now
+  end
 end
