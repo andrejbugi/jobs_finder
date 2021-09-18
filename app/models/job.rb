@@ -13,4 +13,10 @@ class Job < ApplicationRecord
   validates :status, presence: true
 
   enum status: { active: 1, expired: 0 }
+
+  has_many :job_applications, inverse_of: :job, dependent: :destroy
+  accepts_nested_attributes_for :job_applications
+                                # ,reject_if: lambda do |attributes|
+                                #   true if attributes.select { |_k, v| v.blank? }
+                                # end
 end

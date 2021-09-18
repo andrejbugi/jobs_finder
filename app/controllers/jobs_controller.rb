@@ -5,7 +5,9 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
 
-  def show; end
+  def show
+    @job_applications = @job.job_applications.build
+  end
 
   def new
     @job = Job.new
@@ -42,9 +44,11 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :company_name,
-                                :company_email, :category, :deadline,
-                                :status)
+    params.require(:job).permit(:title, :description, :company_name, :company_email,
+                                :category, :deadline, :status,
+                                job_applications_attributes: %i[full_name date_of_birth email
+                                                                phone_number address education
+                                                                id])
   end
 
   def set_job

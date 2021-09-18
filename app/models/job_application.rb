@@ -17,4 +17,6 @@ class JobApplication < ApplicationRecord
   validates :education, presence: true
 
   enum education: { vss: 0, všs: 1, sss: 2, nk: 3 }
+
+  belongs_to :job
 end

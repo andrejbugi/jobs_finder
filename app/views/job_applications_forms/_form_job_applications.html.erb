@@ -1,0 +1,41 @@
+<h3>Apply for this job</h3>
+<ul>
+  <%= form.fields_for :job_applications, job_applications do |job_applications_form| %>
+  <li>
+    <div class="actions">
+      <%= job_applications_form.label :full_name %>
+      <%= job_applications_form.text_field :full_name %>
+    </div>
+
+    <div class="actions">
+      <%= job_applications_form.label :birthday %>
+      <%= job_applications_form.date_field :date_of_birth %>
+    </div>
+
+    <div class="actions">
+      <%= job_applications_form.label :email %>
+      <%= job_applications_form.email_field :email %>
+    </div>
+
+    <div class="actions">
+      <%= job_applications_form.label :phone_number %>
+      <%= job_applications_form.text_field :phone_number %>
+    </div>
+
+    <div class="actions">
+      <%= job_applications_form.label :address %>
+      <%= job_applications_form.text_field :address %>
+    </div>
+
+    <div class="actions">
+      <%= job_applications_form.label :education %>
+      <%= job_applications_form.select :education, [['Visa strucna sprema', 'vss'], ['nk'],
+                                  ['všs'], ['Sredna strucna sprema', 'sss']] %>
+    </div>
+
+    <div class="actions">
+      <%= job_applications_form.submit 'Submit proposal' %>
+    </div>
+  </li>
+  <% end %>
+</ul>

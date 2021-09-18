@@ -1,2 +1,13 @@
+<h2><%= @job.title %></h2>
 <p><%= @job.status %></p>
+<p><%= @job.description %></p>
+<p><%= @job.company_name %></p>
+<p><%= @job.company_email %></p>
+<p><%= @job.category %></p>
 <p><%= @job.deadline %></p>
+
+<%= form_with model: @job do |form| %>
+  <%= render 'job_applications_forms/form_job_applications',
+      form: form,
+      job_applications: @job_applications %>
+<% end %>
