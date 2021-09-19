@@ -1,4 +1,29 @@
-<% @jobs.each do |job| %>
-  <%= job.title %>
-  <%= link_to 'Show', job %>
-<% end %>
+
+<div class="container px-5 px-lg-8 pb-4 mt-4">
+  <% @jobs.each do |job| %>
+    <div class="row gx-8 gx-lg-8 align-items-center my-8 mb-4 text-center">
+        <h1 class="font-weight-light"><%= job.title %></h1>
+        <div class="col-lg-8 text-start job-descr-info">
+            <h4 class="company-name mt-2"><%= job.company_name %></h4>
+            <p class="description"><%= job.description %></p>
+
+            <%= link_to 'More about this Job', job, class: "btn btn-primary mb-2" %>
+        </div>
+
+        <div class="col-lg-4 text-center">
+          <div class="card h-100">
+            <div class="card-body">
+              <p class="small-letters mb-0">contact <strong class="info-job mb-4"><%= job.company_email %></strong></p>
+              <p class="small-letters mb-0">category <strong class="info-job mb-4"><%= job.category %></strong></p>
+              <p class="small-letters mb-0">active until <strong class="info-job mb-4"><%= job.deadline.to_date %></strong></p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <% end %>
+</div>
+
+
+
+

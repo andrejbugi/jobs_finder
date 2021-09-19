@@ -1,5 +1,14 @@
-<h1>List new job</h1>
+<section class="py-5">
+  <div class="container px-5 text-center">
+    <h1>List new job</h1>
+      <div class="row justify-content-center text-start mb-4">
+        <div class="col-6">
+        <%= render 'form', job: @job %>
 
-<%= render 'form', job: @job %>
-
-<%= link_to 'Back', jobs_path %>
+          <div class="form-group width-50 mb-4">
+            <%= button_to 'Back', :back, method: :get, class: 'form-control' %>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>

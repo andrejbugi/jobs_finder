@@ -2,7 +2,7 @@
 
 5.times do
   job = Job.new({ title: Faker::Job.title,
-                  description: Faker::Hipster.paragraph(sentence_count: 7),
+                  description: Faker::Hipster.paragraph(sentence_count: 8),
                   company_name: Faker::Company.name,
                   company_email: Faker::Internet.safe_email,
                   category: Faker::Job.field,

@@ -1,3 +1,54 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.info-job {
+  font-weight: lighter;
+  font-size: 1.5em;
+  font-style: italic;
+  color: #000080;
+}
+
+.smaller {
+  font-size: 1em;
+}
+
+.apply-date {
+  font-style: oblique;
+}
+
+.job-title {
+  font-size: 3em;
+}
+
+.description-title {
+  font-weight: 700;
+  font-style: oblique;
+
+}
+
+.small-letters {
+  font-size: .65em;
+  color: rgb(255, 191, 73);
+}
+
+.card {
+  // background-color: rgb(238, 238, 238);
+}
+
+.job-descr-info {
+  background-color: rgb(238, 238, 238);
+  border: 1px solid rgb(225, 224, 224);
+  border-radius: 5px;
+}
+
+.width-50 {
+  width: 50%;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.width-25 {
+  width: 25%;
+  margin: 0 auto;
+}

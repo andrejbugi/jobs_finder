@@ -1,6 +1,18 @@
-<% @job_applications.each do |job_application| %>
-  <%= job_application.full_name %>
-  <%= job_application.phone_number %>
-  <%= job_application.email %>
-  <%= link_to 'Show', job_application %>
-<% end %>
+<div class="container px-4 px-lg-5 mt-4">
+
+    <div class="row gx-4 gx-lg-5">
+    <% @job_applications.each do |job_application| %>
+          <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Card One</h2>
+                    <p class="card-text"><%= job_application.phone_number %></p>
+                    <p class="card-text"><%= job_application.full_name %></p>
+                    <p class="card-text"><%= job_application.email %></p>
+                </div>
+                <div class="card-footer"><%= link_to 'Show', job_job_application_path(@job, job_application), class: 'btn btn-primary btn-sm' %></div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>
