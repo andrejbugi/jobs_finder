@@ -1,6 +1,7 @@
 class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: %i[show edit update destroy]
   before_action :find_job, only: %i[index new create show]
+  skip_before_action :authenticate_user!, only: %i[index new create]
 
   def index
     @job_applications = @job.job_applications

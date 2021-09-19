@@ -1,0 +1,27 @@
+<section class="py-5">
+  <div class="container px-5 text-center">
+    <div class="row">
+      <div class="col-3 col-4-sm form-auth">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%# <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> %>
+          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <%= f.email_field :email, autofocus: true, class: "form-control", id: "inputEmail", placeholder: "Email address", autocomplete: "email" %>
+
+          <label for="inputPassword" class="sr-only">Password</label>
+          <%= f.password_field :password, class: "form-control", id: "inputPassword", placeholder: "Password", autocomplete: "current-password" %>
+
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="btn btn-sm btn-primary" type="submit">Sign in</button>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<section class="py-5">
+  <div class="container px-5 text-center">
+    <div class="row">
+      <div class="col-3 col-4-sm form-auth">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <%= f.text_field :full_name, autofocus: true, class: "form-control mb-3", placeholder: "Full Name" %>
+          <%= f.email_field :email, autocomplete: "email", class: "form-control mb-3", placeholder: "Email" %>
+          <%= f.password_field :password, class: "form-control mb-3", placeholder: "Password", autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mb-3", placeholder: "Password Confirmation" %>
+
+          <button class="btn btn-sm btn-primary" type="submit">Sign Up</button>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+</section>

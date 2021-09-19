@@ -6,7 +6,7 @@
                   company_name: Faker::Company.name,
                   company_email: Faker::Internet.safe_email,
                   category: Faker::Job.field,
-                  deadline: Faker::Time.between(from: DateTime.now + 1,
+                  deadline: Faker::Time.between(from: DateTime.now - 1,
                                                 to: DateTime.now + 20,
                                                 format: :default) })
   job.save
@@ -23,3 +23,19 @@
                                                                 format: :default) })
   end
 end
+
+user = User.new({ full_name: Faker::Name.name,
+                  email: 'user@email.com',
+                  password: '12341234',
+                  password_confirmation: '12341234' })
+
+user.save
+
+user1 = User.new({ full_name: Faker::Name.name,
+                   email: 'user1@email.com',
+                   password: '12341234',
+                   password_confirmation: '12341234' })
+
+user1.save
+
+puts "users' emails are: #{user1.email}, #{user.email}, passwords for both of these are: 12341234"
