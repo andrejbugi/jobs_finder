@@ -1,5 +1,26 @@
-<p><%= @job_application.education %></p>
-<p><%= @job_application.date_of_birth %></p>
-<p><%= @job_application.full_name %></p>
-<%= link_to 'Edit', edit_job_job_application_path(@job, @job_application.id) %>
-<%= link_to 'Delete', job_job_application_path(@job, @job_application.id), method: :delete %>
+
+<div class="container px-4 px-lg-5 mt-5 mb-5 text-center">
+  <h1 class="mb-4">Applicant Information</h1>
+  <div class="row gx-4 gx-lg-5 mb-5 text-start justify-content-center">
+      <div class="col-md-6 mt-2">
+          <div class="card h-100">
+              <div class="card-body">
+                  <p class="card-text bigger-font"><small>name: </small> <%= @job_application.full_name %></p>
+                  <p class="card-text bigger-font"><small>birthday: </small><%= @job_application.date_of_birth %></p>
+                  <p class="card-text bigger-font"><small>education: </small><%= @job_application.education %></p>
+                  <p class="card-text bigger-font"><small>email: </small><%= @job_application.email %></p>
+                  <p class="card-text bigger-font"><small>phone no: </small><%= @job_application.phone_number %></p>
+                  <p class="card-text bigger-font"><small>address: </small><%= @job_application.address %></p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row text-center justify-content-center">
+      <div class="col-md-6 mb-3">
+            <%= button_to 'Go Back', :back, method: :get, class: 'btn btn-lg btn-dark' %>
+      </div>
+  </div>
+</div>
+
+
+

@@ -56,3 +56,12 @@
 .form-auth {
   margin: 0 auto;
 }
+
+.btn-custom {
+  color: rgb(0, 0, 0) !important;
+}
+
+.btn-custom:hover,
+.btn-custom:focus {
+  background: rgb(211, 211, 211) !important;
+}

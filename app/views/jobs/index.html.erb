@@ -17,6 +17,11 @@
               <p class="small-letters mb-0">category <strong class="info-job mb-4"><%= job.category %></strong></p>
               <p class="small-letters mb-0">active until <strong class="info-job mb-4"><%= job.deadline.to_date %></strong></p>
             </div>
+            <% if user_signed_in? %>
+              <div class="card-footer">
+                <%= link_to 'Current Applications', job_job_applications_path(job), class: 'btn btn-custom' %>
+              </div>
+            <% end %>
           </div>
         </div>
     </div>
