@@ -14,6 +14,5 @@ class Job < ApplicationRecord
 
   enum status: { active: 1, expired: 0 }
 
-  has_many :job_applications, inverse_of: :job, dependent: :destroy
-  accepts_nested_attributes_for :job_applications
+  has_many :job_applications, dependent: :destroy
 end

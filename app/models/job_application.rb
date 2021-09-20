@@ -20,13 +20,13 @@ class JobApplication < ApplicationRecord
 
   belongs_to :job
 
-  before_save :set_status_expired
+  before_save :check_job_status
   before_create :active_job?
   after_create :new_application_email
 
   private
 
-  def set_status_expired
+  def check_job_status
     return if job.status == 'expired'
 
     job.status = 'expired' if job.deadline < Time.now

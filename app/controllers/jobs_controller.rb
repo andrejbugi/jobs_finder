@@ -1,12 +1,13 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @jobs = Job.all
   end
 
   def show
-    # @job_applications = @job.job_applications.build
+    @job_application = @job.job_applications.build
   end
 
   def new
@@ -29,7 +30,7 @@ class JobsController < ApplicationController
     if @job.update(job_params)
       redirect_to @job
     else
-      render :edit
+      user_signed_in? ? (render :edit) : (redirect_to root_path)
     end
   end
 
@@ -45,9 +46,7 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description, :company_name, :company_email,
-                                :category, :deadline, :status,
-                                job_applications_attributes: %i[id full_name date_of_birth email
-                                                                phone_number address education])
+                                :category, :deadline, :status)
   end
 
   def set_job

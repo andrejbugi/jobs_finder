@@ -1,7 +1,7 @@
 class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: %i[show edit update destroy]
   before_action :find_job, only: %i[index new create show]
-  skip_before_action :authenticate_user!, only: %i[index new create]
+  skip_before_action :authenticate_user!, only: %i[new create]
 
   def index
     @job_applications = @job.job_applications
@@ -14,13 +14,13 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
-    @job_application = @job.job_applications.build(job_application_params)
+    @job_application = JobApplication.new(job_application_params)
     @job_application.job_id = @job.id
 
     if @job_application.save
       redirect_to @job
     else
-      render :new
+      user_signed_in? ? (render :new) : (redirect_to @job)
     end
   end
 
@@ -30,7 +30,7 @@ class JobApplicationsController < ApplicationController
     if @job_application.update(job_application_params)
       redirect_to @job_application
     else
-      render :edit
+      user_signed_in? ? (render :edit) : (redirect_to root_path)
     end
   end
 
