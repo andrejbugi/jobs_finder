@@ -18,6 +18,7 @@ class JobApplicationsController < ApplicationController
     @job_application.job_id = @job.id
 
     if @job_application.save
+      flash[:notice] = 'Successfully applied to this job'
       redirect_to @job
     else
       user_signed_in? ? (render :new) : (redirect_to @job)
