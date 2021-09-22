@@ -24,6 +24,8 @@ class JobApplication < ApplicationRecord
   before_create :active_job?
   after_create :new_application_email
 
+  mount_uploader :document, DocumentUploader
+
   private
 
   def check_job_status

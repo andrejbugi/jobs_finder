@@ -42,6 +42,10 @@
                                                     ['všs'], ['Sredna strucna sprema', 'sss']], class: 'form-control' %>
     </div>
 
+    <div class="form-group width-50 mb-4">
+      <%= form.file_field :documents, multiple: true %>
+    </div>
+
   <div class="form-group width-25 mb-4">
     <%= form.submit 'Submit proposal', class: 'form-control' %>
   </div>
