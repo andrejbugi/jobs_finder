@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'JobApplications' do
-  include Warden::Test::Helpers
-
   describe 'creating applications' do
     context 'when some information is missing or incorrect' do
       let(:job) { create(:job) }
