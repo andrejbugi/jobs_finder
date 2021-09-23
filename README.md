@@ -17,7 +17,7 @@
 
   Find your dream job on JobsFinder!
 
-  **Apply to jobs cannot be easier!**
+  **Applying to jobs cannot be easier!**
 
   Just fint the job that you want and send your application.
   Person responsible for that job will get notified via email and after receiving your application he will
@@ -50,6 +50,8 @@
   First we need to install docker. Pick your operating system and follow the instructions:
 
   https://docs.docker.com/get-docker/
+
+  After installing docker on your machine, we can proceed with the db
 
   To use the database, write the next commands on your terminal:
 

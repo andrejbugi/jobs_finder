@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-2.times do
+4.times do
   job = Job.new({ title: Faker::Job.title,
                   description: Faker::Hipster.paragraph(sentence_count: 8),
                   company_name: Faker::Company.name,
@@ -11,20 +11,17 @@
                                                 format: :default) })
   job.save
 
-  3.times do
+  4.times do
     j = JobApplication.new({ full_name: Faker::Name.name,
-                                 address: "#{Faker::Address.city}, #{Faker::Address.street_address}",
-                                 phone_number: Faker::PhoneNumber.cell_phone_in_e164,
-                                 email: Faker::Internet.safe_email,
-                                 education: Faker::Number.between(from: 0, to: 3),
-                                 job: Job.first,
-                                 documents: '',
-                                 date_of_birth: Faker::Time.between(from: DateTime.now - 25_000,
-                                                                     to: DateTime.now - 4_000,
-                                                                    format: :default) })
-
-    # downloaded_image = open("https://source.unsplash.com/300x300/?#{j.full_name}")
-    # j.documents = [downloaded_image]
+                             address: "#{Faker::Address.city}, #{Faker::Address.street_address}",
+                             phone_number: Faker::PhoneNumber.cell_phone_in_e164,
+                             email: Faker::Internet.safe_email,
+                             education: Faker::Number.between(from: 0, to: 3),
+                             job: Job.first,
+                             document: '',
+                             date_of_birth: Faker::Time.between(from: DateTime.now - 25_000,
+                                                                to: DateTime.now - 4_000,
+                                                                format: :default) })
     j.save
   end
 end
